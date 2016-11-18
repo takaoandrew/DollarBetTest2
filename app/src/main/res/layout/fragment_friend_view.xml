@@ -10,28 +10,37 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/view_note_icon"
+        android:id="@+id/contact_image_view"
         android:src="@drawable/p"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginEnd="15dp"/>
-    <ScrollView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/note_scroll_view"
+        android:id="@+id/contact_name_view"
         android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/contact_image_view"
+        android:layout_toEndOf="@+id/contact_image_view"
+        android:layout_toStartOf="@+id/bets_resolved_view"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Note Title"
+        android:textColor="@android:color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bets_resolved_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/contact_image_view"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/view_note_icon"
-        android:layout_alignBottom="@+id/view_note_icon"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Note Title"
-            android:id="@+id/view_note_title"
-            />
-    </ScrollView>
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="4"
+        android:textColor="@android:color/holo_green_light"/>
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,16 +48,78 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/note_scroll_view"
-        android:layout_alignBottom="@+id/view_note_icon"
+        android:layout_below="@id/contact_name_view"
+        android:layout_alignBottom="@+id/contact_image_view"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:id="@+id/view_note_message"
-            android:text="Note Message"
-            android:textColor="#000000"
-            />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bets_requested_title_view"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/requests"
+                android:textColor="@color/betsRequestedText"
+                />
+            <ListView
+                android:id="@+id/bets_requested_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/betsRequestedBackground">
+            </ListView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bets_pending_title_view"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/pending"
+                android:textColor="@color/betsPendingText"
+                />
+            <ListView
+                android:id="@+id/bets_pending_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/betsPendingBackground">
+            </ListView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bets_won_title_view"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/won"
+                android:textColor="@color/betsWonText"
+                />
+            <ListView
+                android:id="@+id/bets_won_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/betsWonBackground">
+            </ListView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bets_lost_title_view"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/lost"
+                android:textColor="@color/betsLostText"
+                />
+            <ListView
+                android:id="@+id/bets_lost_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/betsLostBackground">
+            </ListView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="800dp"
+                android:textSize="18sp"
+                android:id="@+id/view_note_message"
+                android:text="Note Message"
+                android:textColor="#000000"
+                />
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

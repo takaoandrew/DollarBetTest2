@@ -36,20 +36,20 @@ public class DollarBetDbAdapter {
     private SQLiteDatabase sqlDB;
     private Context context;
 
-    private NotebookDbHelper notebookDbHelper;
+    private DollarBetDbHelper dollarBetDbHelper;
 
     public DollarBetDbAdapter(Context ctx) {
         context = ctx;
     }
 
     public DollarBetDbAdapter open() throws android.database.SQLException{
-        notebookDbHelper = new NotebookDbHelper(context);
-        sqlDB = notebookDbHelper.getWritableDatabase();
+        dollarBetDbHelper = new DollarBetDbHelper(context);
+        sqlDB = dollarBetDbHelper.getWritableDatabase();
         return this;
     }
 
     public void close(){
-        notebookDbHelper.close();
+        dollarBetDbHelper.close();
     }
 
     public Friend createNote(String title, String message, Friend.Category category) {
@@ -107,10 +107,10 @@ public class DollarBetDbAdapter {
         return newFriend;
     }
 
-    private static class NotebookDbHelper extends SQLiteOpenHelper{
+    private static class DollarBetDbHelper extends SQLiteOpenHelper{
 
 
-        NotebookDbHelper(Context ctx){
+        DollarBetDbHelper(Context ctx){
             super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
         }
 

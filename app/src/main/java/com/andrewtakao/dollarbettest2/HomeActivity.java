@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
             mainLayout.setBackgroundColor(Color.parseColor("#3c3f41"));
         }
 
-        String notebookTitle = sharedPreferences.getString("Title", "Notebook");
+        String notebookTitle = sharedPreferences.getString("Title", "Dollar Bet");
         setTitle(notebookTitle);
     }
 }

@@ -33,5 +33,9 @@
 
     <!-- Fragment Widget Strings -->
     <string name="save_friend_button">Save Friend </string>
+    <string name="requests">Requests</string>
+    <string name="pending">Pending</string>
+    <string name="won">Won</string>
+    <string name="lost">Lost</string>
 
 </resources>

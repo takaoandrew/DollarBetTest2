@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="betsRequestedText">#0066ff</color>
+    <color name="betsRequestedBackground">#80b3ff</color>
+    <color name="betsPendingText">#000000</color>
+    <color name="betsPendingBackground">#a2a3a4</color>
+    <color name="betsWonText">#13c92b</color>
+    <color name="betsWonBackground">#68ab67</color>
+    <color name="betsLostText">#ff0000</color>
+    <color name="betsLostBackground">#c17d7d</color>
 </resources>
