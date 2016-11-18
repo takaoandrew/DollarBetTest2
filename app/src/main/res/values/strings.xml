@@ -1,0 +1,19 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Dollar Bet</string>
+    <string name="title_crossfade">Simple Crossfade</string>
+    <string name="title_screen_slide">Newbie</string>
+    <string name="title_zoom">Zoom</string>
+    <string name="title_layout_changes">Layout Changes</string>
+     <string name="title_template_step">Step <xliff:g id="step_number">%1$d</xliff:g>: Lorem
+        Ipsum</string>
+
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+
+    <string name="description_zoom_touch_close">Expanded image (touch to close)</string>
+
+    <string name="welcome_message">Welcome to Dollar Bet!</string>
+    <string name="welcome_information">Challenge your friends and keep track of points</string>
+    <string name="about">Dollar bet is the app that allows you to...</string>
+
+</resources>
