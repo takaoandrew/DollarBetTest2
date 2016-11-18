@@ -32,9 +32,9 @@ public class FriendAdapter extends ArrayAdapter<Friend> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_row,parent,false);
             viewHolder = new ViewHolder();
-            viewHolder.title = (TextView) convertView.findViewById(R.id.list_item_note_title);
-            viewHolder.message = (TextView) convertView.findViewById(R.id.list_item_note_body);
-            viewHolder.noteIcon = (ImageView) convertView.findViewById(R.id.list_item_note_image);
+            viewHolder.title = (TextView) convertView.findViewById(R.id.list_item_contact_name);
+            viewHolder.message = (TextView) convertView.findViewById(R.id.list_item_bets_requested);
+            viewHolder.noteIcon = (ImageView) convertView.findViewById(R.id.list_item_contact_image);
             convertView.setTag(viewHolder);
         }
         else {
