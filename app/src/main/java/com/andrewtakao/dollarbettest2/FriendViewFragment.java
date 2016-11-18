@@ -23,10 +23,11 @@ public class FriendViewFragment extends Fragment {
     public FriendViewFragment() {
         // Required empty public constructor
     }
-    private String [] data1 ={"Hiren", "Pratik", "Dhruv"};
-    private String [] data2 ={"Kirit", "Miral", "Bhushan"};
-    private String [] data3 ={"Narendra", "Piyush", "Priyank"};
-    private String [] data4 ={"Jiten", "Ajay", "Kamlesh"};
+
+    private String[] data1 = {"Hiren", "Pratik", "Dhruv"};
+    private String[] data2 = {"Kirit", "Miral", "Bhushan"};
+    private String[] data3 = {"Narendra", "Piyush", "Priyank"};
+    private String[] data4 = {"Jiten", "Ajay", "Kamlesh"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
