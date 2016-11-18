@@ -7,7 +7,7 @@
         android:icon="@drawable/dollarbetlogo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FriendDetailActivity"
+            android:label="@string/edit_fragment_title"
+            android:parentActivityName=".HomeActivity" />
+        <activity android:name=".AppPreferences"
+            android:label="@string/title_preferences"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".NewbieActivity" />
         <activity android:name=".HomeActivity"/>
     </application>
