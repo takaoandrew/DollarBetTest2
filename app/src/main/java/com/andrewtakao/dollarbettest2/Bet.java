@@ -5,7 +5,7 @@ package com.andrewtakao.dollarbettest2;
  */
 public class Bet {
     private String bet;
-    private long noteId, dateCreatedMilli;
+    private long betId, dateCreatedMilli;
     private Category category;
 
     public enum Category {REQUESTED, PENDING, RESOLVED}
@@ -13,14 +13,14 @@ public class Bet {
     public Bet(String bet, Category category) {
         this.bet = bet;
         this.category = category;
-        this.noteId = 0;
+        this.betId = 0;
         this.dateCreatedMilli = 0;
     }
 
-    public Bet(String bet, Category category, long noteId, long dateCreatedMilli) {
+    public Bet(String bet, Category category, long betId, long dateCreatedMilli) {
         this.bet = bet;
         this.category = category;
-        this.noteId = noteId;
+        this.betId = betId;
         this.dateCreatedMilli = dateCreatedMilli;
     }
 
@@ -32,12 +32,12 @@ public class Bet {
         this.bet = bet;
     }
 
-    public long getNoteId() {
-        return noteId;
+    public long getBetId() {
+        return betId;
     }
 
-    public void setNoteId(long noteId) {
-        this.noteId = noteId;
+    public void setBetId(long betId) {
+        this.betId = betId;
     }
 
     public long getDateCreatedMilli() {
@@ -61,7 +61,7 @@ public class Bet {
         return "Bet{" +
                 "bet='" + bet + '\'' +
                 ", category='" + category + '\'' +
-                ", noteId=" + noteId +
+                ", betId=" + betId +
                 ", dateCreatedMilli=" + dateCreatedMilli +
                 '}';
     }

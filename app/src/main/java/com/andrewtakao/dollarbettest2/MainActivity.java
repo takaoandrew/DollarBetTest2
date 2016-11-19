@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //for testing purposes
+        Intent newActivity = new Intent(this, HomeActivity.class);
+        this.startActivity(newActivity);
+
     }
     Class<? extends Activity> activityClass = NewbieActivity.class;
 

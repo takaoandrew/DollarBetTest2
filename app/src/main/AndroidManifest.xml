@@ -25,7 +25,8 @@
             android:parentActivityName=".HomeActivity" />
         <activity android:name=".NewbieActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".FriendViewActivity"></activity>
+        <activity android:name=".FriendViewActivity" />
+        <activity android:name=".BetDetailActivity"></activity>
     </application>
 
 </manifest>

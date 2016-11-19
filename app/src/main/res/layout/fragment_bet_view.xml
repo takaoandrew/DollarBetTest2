@@ -2,18 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="10dp"
+    android:paddingStart="12dp"
     android:paddingBottom="10dp"
+    android:paddingEnd="10dp"
     android:paddingTop="10dp"
     android:background="#000000">
 
     <TextView
         android:id="@+id/bet_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="Pats win superbowl" />
+        android:text="Test" />
 
+    <TextView
+        android:id="@+id/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Would you like to accept?" />
 </RelativeLayout>

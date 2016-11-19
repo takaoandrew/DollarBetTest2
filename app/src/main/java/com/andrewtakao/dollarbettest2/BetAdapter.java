@@ -35,7 +35,7 @@ public class BetAdapter extends ArrayAdapter<Bet> {
 
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (BetAdapter.ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.betName.setText(bet.getBet());
 
