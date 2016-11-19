@@ -19,11 +19,13 @@
             android:name=".FriendDetailActivity"
             android:label="@string/edit_fragment_title"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".AppPreferences"
+        <activity
+            android:name=".AppPreferences"
             android:label="@string/title_preferences"
             android:parentActivityName=".HomeActivity" />
         <activity android:name=".NewbieActivity" />
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".FriendViewActivity"></activity>
     </application>
 
 </manifest>

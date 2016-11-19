@@ -5,18 +5,20 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static final String NOTE_ID_EXTRA = "com.andrewtakao.dollarbettest2.Identifier";
-    public static final String NOTE_TITLE_EXTRA = "com.andrewtakao.dollarbettest2.Title";
-    public static final String NOTE_MESSAGE_EXTRA = "com.andrewtakao.dollarbettest2.Message";
-    public static final String NOTE_CATEGORY_EXTRA = "com.andrewtakao.dollarbettest2.Category";
+    public static final String FRIEND_ID_EXTRA = "com.andrewtakao.dollarbettest2.Identifier";
+    public static final String FRIEND_NAME_EXTRA = "com.andrewtakao.dollarbettest2.Title";
+    public static final String FRIEND_BET_REQUESTED_EXTRA = "com.andrewtakao.dollarbettest2.Message";
+    public static final String FRIEND_IMAGE_EXTRA = "com.andrewtakao.dollarbettest2.Category";
     public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA =
             "com.andrewtakao.dollarbettest2.Fragment_To_Load";
     public enum FragmentToLaunch{ VIEW, EDIT, CREATE}
@@ -28,6 +30,15 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), FriendDetailActivity.class);
+                intent.putExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+                startActivity(intent);
+            }
+        });
         loadPreferences();
 
     }

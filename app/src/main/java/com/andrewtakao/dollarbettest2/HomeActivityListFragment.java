@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,36 +25,32 @@ public class HomeActivityListFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
 
-        /*
-        friends = new ArrayList<Friend>();
-        friends.add(new Friend("This is a new note title, and an extroardinarily long one at that, would" +
-                "you not agree my fine friend","This is the body of our note This is the body of our" +
-                " noteThis is the body of our noteThis is the body of our noteThis is the body of " +
-                "our note",Friend.Category.PERSONAL));
-        friends.add(new Friend("Testin","123",Friend.Category.QUOTE));
-        friends.add(new Friend("Thi title","This is aeou,.u our note",Friend.Category.FINANCE));
-        */
-
-        DollarBetDbAdapter dbAdapter = new DollarBetDbAdapter(getActivity().getBaseContext());
+        FriendDbAdapter dbAdapter = new FriendDbAdapter(getActivity().getBaseContext());
         dbAdapter.open();
-        friends = dbAdapter.getAllNotes();
+        friends = dbAdapter.getAllFriends();
         dbAdapter.close();
 
         friendAdapter = new FriendAdapter(getActivity(), friends);
         setListAdapter(friendAdapter);
 
         getListView().setDivider(ContextCompat.getDrawable(getActivity(),android.R.color.black));
-        getListView().setDividerHeight(30);
+        getListView().setDividerHeight(10);
 
         registerForContextMenu(getListView());
     }
 
-
-
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
         super.onListItemClick(l,v,position,id);
-        launchNoteDetailActivity(HomeActivity.FragmentToLaunch.VIEW, position);
+        Intent intent = new Intent(getActivity(), FriendViewActivity.class);
+        Friend friend = (Friend) getListAdapter().getItem(position);
+        intent.putExtra(HomeActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
+        intent.putExtra(HomeActivity.FRIEND_NAME_EXTRA, friend.getName());
+        intent.putExtra(HomeActivity.FRIEND_ID_EXTRA, friend.getFriendId());
+        intent.putExtra(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
+        startActivity(intent);
+
+        //launchFriendDetailActivity(HomeActivity.FragmentToLaunch.VIEW, position);
     }
 
     @Override
@@ -76,17 +71,16 @@ public class HomeActivityListFragment extends ListFragment {
         switch (item.getItemId()){
 
             case R.id.edit:
-                launchNoteDetailActivity(HomeActivity.FragmentToLaunch.EDIT, rowPosition);
-                Log.d("Menu Clicks", "We pressed edit!");
+                launchFriendDetailActivity(HomeActivity.FragmentToLaunch.EDIT, rowPosition);
                 return true;
 
             case R.id.delete:
-                DollarBetDbAdapter dbAdapter = new DollarBetDbAdapter(getActivity().getBaseContext());
+                FriendDbAdapter dbAdapter = new FriendDbAdapter(getActivity().getBaseContext());
                 dbAdapter.open();
-                dbAdapter.deleteNote(friend.getNoteId());
+                dbAdapter.deleteNote(friend.getFriendId());
 
                 friends.clear();
-                friends.addAll(dbAdapter.getAllNotes());
+                friends.addAll(dbAdapter.getAllFriends());
                 friendAdapter.notifyDataSetChanged();
 
                 dbAdapter.close();
@@ -95,13 +89,13 @@ public class HomeActivityListFragment extends ListFragment {
         return super.onContextItemSelected(item);
     }
 
-    private void launchNoteDetailActivity(HomeActivity.FragmentToLaunch ftl, int position){
+    private void launchFriendDetailActivity(HomeActivity.FragmentToLaunch ftl, int position) {
         Friend friend = (Friend) getListAdapter().getItem(position);
         Intent intent = new Intent(getActivity(),FriendDetailActivity.class);
-        intent.putExtra(HomeActivity.NOTE_CATEGORY_EXTRA, friend.getCategory());
-        intent.putExtra(HomeActivity.NOTE_TITLE_EXTRA, friend.getTitle());
-        intent.putExtra(HomeActivity.NOTE_ID_EXTRA, friend.getNoteId());
-        intent.putExtra(HomeActivity.NOTE_MESSAGE_EXTRA, friend.getMessage());
+        intent.putExtra(HomeActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
+        intent.putExtra(HomeActivity.FRIEND_NAME_EXTRA, friend.getName());
+        intent.putExtra(HomeActivity.FRIEND_ID_EXTRA, friend.getFriendId());
+        intent.putExtra(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
 
         switch (ftl){
             case VIEW:
@@ -112,6 +106,7 @@ public class HomeActivityListFragment extends ListFragment {
                 break;
         }
         startActivity(intent);
+
 
     }
 

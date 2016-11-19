@@ -57,10 +57,10 @@ public class FriendViewFragment extends Fragment {
         ListUtils.setDynamicHeight(betsLost);
 
         Intent intent = getActivity().getIntent();
-        contactName.setText(intent.getExtras().getString(HomeActivity.NOTE_TITLE_EXTRA));
-        message.setText(intent.getExtras().getString(HomeActivity.NOTE_MESSAGE_EXTRA));
+        contactName.setText(intent.getExtras().getString(HomeActivity.FRIEND_NAME_EXTRA));
+        message.setText(intent.getExtras().getString(HomeActivity.FRIEND_BET_REQUESTED_EXTRA));
 
-        Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(HomeActivity.NOTE_CATEGORY_EXTRA);
+        Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(HomeActivity.FRIEND_IMAGE_EXTRA);
         icon.setImageResource(Friend.categoryToDrawable(noteCat));
 
         return fragmentLayout;

@@ -15,11 +15,13 @@ import java.util.ArrayList;
  */
 
 public class FriendAdapter extends ArrayAdapter<Friend> {
+
     public static class ViewHolder{
         TextView title;
         TextView message;
         ImageView noteIcon;
     }
+
     public FriendAdapter(Context context, ArrayList<Friend> friends){
         super(context, 0, friends);
     }
@@ -40,8 +42,8 @@ public class FriendAdapter extends ArrayAdapter<Friend> {
         else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.title.setText(friend.getTitle());
-        viewHolder.message.setText(friend.getMessage());
+        viewHolder.title.setText(friend.getName());
+        viewHolder.message.setText(friend.getRequestedBet());
         viewHolder.noteIcon.setImageResource(friend.getAssociatedDrawable());
 
         return convertView;

@@ -34,7 +34,6 @@ public class FriendEditFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,15 +54,15 @@ public class FriendEditFragment extends Fragment {
         Button savedButton = (Button) fragmentLayout.findViewById(R.id.save_note);
 
         Intent intent = getActivity().getIntent();
-        title.setText(intent.getExtras().getString(HomeActivity.NOTE_TITLE_EXTRA, ""));
-        message.setText(intent.getExtras().getString(HomeActivity.NOTE_MESSAGE_EXTRA, ""));
-        noteId = intent.getExtras().getLong(HomeActivity.NOTE_ID_EXTRA, 0);
+        title.setText(intent.getExtras().getString(HomeActivity.FRIEND_NAME_EXTRA, ""));
+        message.setText(intent.getExtras().getString(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, ""));
+        noteId = intent.getExtras().getLong(HomeActivity.FRIEND_ID_EXTRA, 0);
 
         if (savedButtonCategory != null) {
             noteCatButton.setImageResource(Friend.categoryToDrawable(savedButtonCategory));
         }
         else if (!newNote){
-            Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(HomeActivity.NOTE_CATEGORY_EXTRA);
+            Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(HomeActivity.FRIEND_IMAGE_EXTRA);
             savedButtonCategory = noteCat;
             noteCatButton.setImageResource(Friend.categoryToDrawable(noteCat));
         }
@@ -135,7 +134,7 @@ public class FriendEditFragment extends Fragment {
                 Log.d("Save Friend","Friend Title: " + title.getText() + "Friend Message: " + message.getText() +
                 "Friend category: " + savedButtonCategory);
 
-                DollarBetDbAdapter dbAdapter = new DollarBetDbAdapter(getActivity().getBaseContext());
+                FriendDbAdapter dbAdapter = new FriendDbAdapter(getActivity().getBaseContext());
                 dbAdapter.open();
 
                 if (newNote) {
@@ -144,7 +143,7 @@ public class FriendEditFragment extends Fragment {
 
                 }
                 else {
-                    dbAdapter.updateNote(noteId, title.getText() + "", message.getText() + "", savedButtonCategory);
+                    dbAdapter.updateFriend(noteId, title.getText() + "", message.getText() + "", savedButtonCategory);
 
                 }
 

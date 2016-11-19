@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="General">
+    <PreferenceCategory android:name="General">
         <EditTextPreference
-            android:title="Dollar Bet Title"
-            android:summary="The title that will be used on the main action bar."
-            android:key="title"
+            android:name="Dollar Bet Title"
+            android:summary="The name that will be used on the main action bar."
+            android:key="name"
             android:defaultValue="Dollar Bet"
             />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="Color">
+    <PreferenceCategory android:name="Color">
         <CheckBoxPreference
-            android:title="Dark Background"
+            android:name="Dark Background"
             android:summary="Is the main background color dark?"
             android:key="background_color"
             android:defaultValue="false"
