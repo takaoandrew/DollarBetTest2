@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.andrewtakao.dollarbettest2.HomeActivity"
+    tools:context="com.andrewtakao.dollarbettest2.FriendsActivity"
     tools:showIn="@layout/activity_home">
 
     <fragment
         android:id="@+id/mainActivityFrag"
-        android:name="com.andrewtakao.dollarbettest2.HomeActivityListFragment"
+        android:name="com.andrewtakao.dollarbettest2.FriendsActivityListFragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 

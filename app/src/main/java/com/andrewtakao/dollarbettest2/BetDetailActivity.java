@@ -1,9 +1,9 @@
 package com.andrewtakao.dollarbettest2;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class BetDetailActivity extends AppCompatActivity {
 
@@ -20,7 +20,8 @@ public class BetDetailActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         BetViewFragment betViewFragment = new BetViewFragment();
-        fragmentTransaction.add(R.id.activity_bet_detail, betViewFragment, "BET_VIEW_FRAGMENT");
+        setTitle("Bets");
+        fragmentTransaction.add(R.id.content_bet_detail, betViewFragment, "BET_VIEW_FRAGMENT");
         fragmentTransaction.commit();
 
 

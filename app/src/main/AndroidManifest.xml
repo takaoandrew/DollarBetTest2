@@ -18,15 +18,18 @@
         <activity
             android:name=".FriendDetailActivity"
             android:label="@string/edit_fragment_title"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".FriendsActivity" />
         <activity
             android:name=".AppPreferences"
             android:label="@string/title_preferences"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".FriendsActivity" />
         <activity android:name=".NewbieActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".FriendViewActivity" />
-        <activity android:name=".BetDetailActivity"></activity>
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".BetsActivity" />
+        <activity
+            android:name=".BetDetailActivity"
+            android:label="Bets"
+            android:parentActivityName=".BetsActivity" />
     </application>
 
 </manifest>

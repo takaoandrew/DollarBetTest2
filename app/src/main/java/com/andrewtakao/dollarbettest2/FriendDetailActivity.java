@@ -20,8 +20,8 @@ public class FriendDetailActivity extends AppCompatActivity {
     protected void createAndAddFragment(){
 
         Intent intent = getIntent();
-        HomeActivity.FragmentToLaunch fragmentToLaunch =
-                (HomeActivity.FragmentToLaunch) intent.getSerializableExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
+        FriendsActivity.FragmentToLaunch fragmentToLaunch =
+                (FriendsActivity.FragmentToLaunch) intent.getSerializableExtra(FriendsActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -1,6 +1,7 @@
 package com.andrewtakao.dollarbettest2;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,24 +14,25 @@ import java.util.ArrayList;
  * Created by andrewtakao on 11/19/16.
  */
 
-public class BetAdapter extends ArrayAdapter<Bet> {
+public class BetPendingAdapter extends ArrayAdapter<Bet> {
 
     public static class ViewHolder {
         TextView betName;
     }
 
-    public BetAdapter(Context context, ArrayList<Bet> bets) {
+    public BetPendingAdapter(Context context, ArrayList<Bet> bets) {
         super(context, 0, bets);
     }
 
     ViewHolder viewHolder;
 
+    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Bet bet = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bet_list_row, parent, false);
-            viewHolder = new BetAdapter.ViewHolder();
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bet_pending_list_row, parent, false);
+            viewHolder = new BetPendingAdapter.ViewHolder();
             viewHolder.betName = (TextView) convertView.findViewById(R.id.bet_name);
 
             convertView.setTag(viewHolder);

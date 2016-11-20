@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.andrewtakao.dollarbettest2.HomeActivity">
+    tools:context="com.andrewtakao.dollarbettest2.FriendsActivity">
     <item
         android:id="@+id/action_add_note"
         android:orderInCategory="1"

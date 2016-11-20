@@ -31,7 +31,7 @@ public class BetViewFragment extends Fragment {
 
         Intent intent = getActivity().getIntent();
 
-        betName.setText(intent.getExtras().getString(FriendViewActivity.BET_NAME_EXTRA));
+        betName.setText(intent.getExtras().getString(BetsActivity.BET_NAME_EXTRA));
         return inflater.inflate(R.layout.fragment_bet_view, container, false);
     }
 

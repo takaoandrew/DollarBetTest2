@@ -32,7 +32,7 @@ public class FriendAdapter extends ArrayAdapter<Friend> {
         Friend friend = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_row,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.friends_list_row, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.title = (TextView) convertView.findViewById(R.id.list_item_contact_name);
             viewHolder.message = (TextView) convertView.findViewById(R.id.list_item_bets_requested);

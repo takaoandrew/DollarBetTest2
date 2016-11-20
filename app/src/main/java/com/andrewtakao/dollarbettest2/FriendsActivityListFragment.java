@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeActivityListFragment extends ListFragment {
+public class FriendsActivityListFragment extends ListFragment {
     private ArrayList<Friend> friends;
     private FriendAdapter friendAdapter;
     @Override
@@ -42,15 +42,15 @@ public class HomeActivityListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
         super.onListItemClick(l,v,position,id);
-        Intent intent = new Intent(getActivity(), FriendViewActivity.class);
+        Intent intent = new Intent(getActivity(), BetsActivity.class);
         Friend friend = (Friend) getListAdapter().getItem(position);
-        intent.putExtra(HomeActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
-        intent.putExtra(HomeActivity.FRIEND_NAME_EXTRA, friend.getName());
-        intent.putExtra(HomeActivity.FRIEND_ID_EXTRA, friend.getFriendId());
-        intent.putExtra(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
+        intent.putExtra(FriendsActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
+        intent.putExtra(FriendsActivity.FRIEND_NAME_EXTRA, friend.getName());
+        intent.putExtra(FriendsActivity.FRIEND_ID_EXTRA, friend.getFriendId());
+        intent.putExtra(FriendsActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
         startActivity(intent);
 
-        //launchFriendDetailActivity(HomeActivity.FragmentToLaunch.VIEW, position);
+        //launchFriendDetailActivity(FriendsActivity.FragmentToLaunch.VIEW, position);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class HomeActivityListFragment extends ListFragment {
         switch (item.getItemId()){
 
             case R.id.edit:
-                launchFriendDetailActivity(HomeActivity.FragmentToLaunch.EDIT, rowPosition);
+                launchFriendDetailActivity(FriendsActivity.FragmentToLaunch.EDIT, rowPosition);
                 return true;
 
             case R.id.delete:
@@ -89,20 +89,20 @@ public class HomeActivityListFragment extends ListFragment {
         return super.onContextItemSelected(item);
     }
 
-    private void launchFriendDetailActivity(HomeActivity.FragmentToLaunch ftl, int position) {
+    private void launchFriendDetailActivity(FriendsActivity.FragmentToLaunch ftl, int position) {
         Friend friend = (Friend) getListAdapter().getItem(position);
         Intent intent = new Intent(getActivity(),FriendDetailActivity.class);
-        intent.putExtra(HomeActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
-        intent.putExtra(HomeActivity.FRIEND_NAME_EXTRA, friend.getName());
-        intent.putExtra(HomeActivity.FRIEND_ID_EXTRA, friend.getFriendId());
-        intent.putExtra(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
+        intent.putExtra(FriendsActivity.FRIEND_IMAGE_EXTRA, friend.getCategory());
+        intent.putExtra(FriendsActivity.FRIEND_NAME_EXTRA, friend.getName());
+        intent.putExtra(FriendsActivity.FRIEND_ID_EXTRA, friend.getFriendId());
+        intent.putExtra(FriendsActivity.FRIEND_BET_REQUESTED_EXTRA, friend.getRequestedBet());
 
         switch (ftl){
             case VIEW:
-                intent.putExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, HomeActivity.FragmentToLaunch.VIEW);
+                intent.putExtra(FriendsActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FriendsActivity.FragmentToLaunch.VIEW);
                 break;
             case EDIT:
-                intent.putExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, HomeActivity.FragmentToLaunch.EDIT);
+                intent.putExtra(FriendsActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FriendsActivity.FragmentToLaunch.EDIT);
                 break;
         }
         startActivity(intent);

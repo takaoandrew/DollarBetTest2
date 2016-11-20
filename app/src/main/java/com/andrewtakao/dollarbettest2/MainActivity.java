@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //for testing purposes
-        Intent newActivity = new Intent(this, HomeActivity.class);
+        Intent newActivity = new Intent(this, FriendsActivity.class);
         this.startActivity(newActivity);
 
     }
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeToggleState(View view) {
         boolean checked = ((ToggleButton)view).isChecked();
         if (checked){
-            activityClass = HomeActivity.class;
+            activityClass = FriendsActivity.class;
         }
         else {
             activityClass = NewbieActivity.class;

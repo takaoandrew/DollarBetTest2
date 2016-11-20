@@ -54,15 +54,15 @@ public class FriendEditFragment extends Fragment {
         Button savedButton = (Button) fragmentLayout.findViewById(R.id.save_note);
 
         Intent intent = getActivity().getIntent();
-        title.setText(intent.getExtras().getString(HomeActivity.FRIEND_NAME_EXTRA, ""));
-        message.setText(intent.getExtras().getString(HomeActivity.FRIEND_BET_REQUESTED_EXTRA, ""));
-        noteId = intent.getExtras().getLong(HomeActivity.FRIEND_ID_EXTRA, 0);
+        title.setText(intent.getExtras().getString(FriendsActivity.FRIEND_NAME_EXTRA, ""));
+        message.setText(intent.getExtras().getString(FriendsActivity.FRIEND_BET_REQUESTED_EXTRA, ""));
+        noteId = intent.getExtras().getLong(FriendsActivity.FRIEND_ID_EXTRA, 0);
 
         if (savedButtonCategory != null) {
             noteCatButton.setImageResource(Friend.categoryToDrawable(savedButtonCategory));
         }
         else if (!newNote){
-            Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(HomeActivity.FRIEND_IMAGE_EXTRA);
+            Friend.Category noteCat = (Friend.Category) intent.getSerializableExtra(FriendsActivity.FRIEND_IMAGE_EXTRA);
             savedButtonCategory = noteCat;
             noteCatButton.setImageResource(Friend.categoryToDrawable(noteCat));
         }
@@ -148,7 +148,7 @@ public class FriendEditFragment extends Fragment {
                 }
 
                 dbAdapter.close();
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
+                Intent intent = new Intent(getActivity(), FriendsActivity.class);
                 startActivity(intent);
             }
         });

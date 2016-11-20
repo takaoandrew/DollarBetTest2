@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class HomeActivity extends AppCompatActivity {
+public class FriendsActivity extends AppCompatActivity {
 
     public static final String FRIEND_ID_EXTRA = "com.andrewtakao.dollarbettest2.Identifier";
     public static final String FRIEND_NAME_EXTRA = "com.andrewtakao.dollarbettest2.Title";
@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), FriendDetailActivity.class);
-                intent.putExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+                intent.putExtra(FriendsActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
                 startActivity(intent);
             }
         });
@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }else if (id==R.id.action_add_note){
             Intent intent = new Intent(this, FriendDetailActivity.class);
-            intent.putExtra(HomeActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+            intent.putExtra(FriendsActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
             startActivity(intent);
             return true;
         }
