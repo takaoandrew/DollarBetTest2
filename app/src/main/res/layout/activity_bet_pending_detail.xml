@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.andrewtakao.dollarbettest2.BetsActivity">
+    tools:context="com.andrewtakao.dollarbettest2.BetPendingDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,21 +22,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
+                android:title="TEST"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_bets" />
+        <include layout="@layout/content_bet_pending_detail" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:src="@drawable/ic_add_black_24dp" />
     </LinearLayout>
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:src="@drawable/ic_add_black_24dp" />
-
 
 </android.support.design.widget.CoordinatorLayout>

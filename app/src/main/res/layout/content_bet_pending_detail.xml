@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/content_bet_detail"
-    tools:context="com.andrewtakao.dollarbettest2.BetDetailActivity">
+    android:id="@+id/content_bet_pending_detail"
+    tools:context="com.andrewtakao.dollarbettest2.BetPendingDetailActivity">
 
 </LinearLayout>

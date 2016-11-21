@@ -41,7 +41,7 @@ public class BetsPendingListFragment extends ListFragment {
 
     private void launchBetDetailActivity(int position) {
         Bet bet = (Bet) getListAdapter().getItem(position);
-        Intent intent = new Intent(getActivity(), BetDetailActivity.class);
+        Intent intent = new Intent(getActivity(), BetPendingDetailActivity.class);
         intent.putExtra(BetsActivity.BET_NAME_EXTRA, bet.getBet());
         intent.putExtra(BetsActivity.BET_CATEGORY_EXTRA, bet.getCategory());
         intent.putExtra(BetsActivity.BET_ID_EXTRA, bet.getBetId());

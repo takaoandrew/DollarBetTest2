@@ -19,8 +19,10 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class FriendsActivityListFragment extends ListFragment {
+
     private ArrayList<Friend> friends;
     private FriendAdapter friendAdapter;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);

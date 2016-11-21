@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.andrewtakao.dollarbettest2.BetDetailActivity">
+    tools:context="com.andrewtakao.dollarbettest2.BetRequestedDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_bet_detail" />
+        <include layout="@layout/content_bet_requested_detail" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

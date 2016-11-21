@@ -27,9 +27,14 @@
         <activity android:name=".FriendsActivity" />
         <activity android:name=".BetsActivity" />
         <activity
-            android:name=".BetDetailActivity"
+            android:name=".BetRequestedDetailActivity"
             android:label="Bets"
             android:parentActivityName=".BetsActivity" />
+        <activity
+            android:name=".BetPendingDetailActivity"
+            android:label="Bets"
+            android:parentActivityName=".BetsActivity" />
+
     </application>
 
 </manifest>

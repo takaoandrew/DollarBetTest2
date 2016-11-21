@@ -16,25 +16,17 @@ import java.util.ArrayList;
  */
 public class BetsRequestedListFragment extends ListFragment {
 
-    private ArrayList<Bet> bets;
+    static ArrayList<Bet> bets;
     private BetRequestedAdapter betRequestedAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        /*String[] values = new String[]{ "Android", "iPhone"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_list_item_1, values);
-
-        setListAdapter(adapter);*/
 
         bets = new ArrayList<>();
-        bets.add(new Bet("Pats will win the super bowl", Bet.Category.REQUESTED));
-        bets.add(new Bet("Germany will win the world cup", Bet.Category.RESOLVED));
         betRequestedAdapter = new BetRequestedAdapter(getActivity(), bets);
         setListAdapter(betRequestedAdapter);
-
+        addBets(bets, "Pats will win the super bowl");
         getListView().setDivider(ContextCompat.getDrawable(getActivity(), android.R.color.white));
         getListView().setDividerHeight(1);
     }
@@ -47,12 +39,25 @@ public class BetsRequestedListFragment extends ListFragment {
 
     private void launchBetDetailActivity(int position) {
         Bet bet = (Bet) getListAdapter().getItem(position);
-        Intent intent = new Intent(getActivity(), BetDetailActivity.class);
+        Intent intent = new Intent(getActivity(), BetRequestedDetailActivity.class);
+        //intent.putExtra(BetsActivity.BETTER_NAME_EXTRA, getActivity().getBetterNameExtra());
         intent.putExtra(BetsActivity.BET_NAME_EXTRA, bet.getBet());
         intent.putExtra(BetsActivity.BET_CATEGORY_EXTRA, bet.getCategory());
         intent.putExtra(BetsActivity.BET_ID_EXTRA, bet.getBetId());
 
         startActivity(intent);
+    }
+
+    public void addBets(ArrayList<Bet> betArrayList, String bet) {
+        /*betArrayList.add(new Bet(bet, Bet.Category.REQUESTED));
+        BetDbAdapter dbAdapter = new BetDbAdapter(getActivity().getBaseContext());
+        dbAdapter.open();
+
+        bets.clear();
+        bets.addAll(dbAdapter.getAllBets());
+        betRequestedAdapter.notifyDataSetChanged();
+
+        dbAdapter.close()*/
     }
 
 

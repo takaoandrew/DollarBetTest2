@@ -14,7 +14,7 @@ import java.util.Calendar;
  */
 
 public class FriendDbAdapter {
-    private static final String DATABASE_NAME = "notebook.db";
+    private static final String DATABASE_NAME = "dollarbet.db";
     private static final int DATABASE_VERSION = 1;
 
     public static final String NOTE_TABLE = "note";

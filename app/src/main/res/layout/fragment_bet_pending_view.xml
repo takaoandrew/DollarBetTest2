@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#000000"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/bet_name"
@@ -11,8 +12,19 @@
         android:text="Test" />
 
     <TextView
-        android:id="@+id/accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Would you like to accept?" />
+        android:text="Who Won?" />
+
+    <ToggleButton
+        android:id="@+id/winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="Me"
+        android:textOff="Them" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mediate" />
 </LinearLayout>

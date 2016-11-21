@@ -14,19 +14,19 @@ import java.util.Calendar;
  */
 
 public class BetDbAdapter {
-    private static final String DATABASE_NAME = "notebook.db";
+    private static final String DATABASE_NAME = "dollarbet.db";
     private static final int DATABASE_VERSION = 1;
 
-    public static final String NOTE_TABLE = "note";
+    public static final String BET_TABLE = "bet";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_NAME = "betName";
-    public static final String COLUMN_REQUESTED = "message";
+    public static final String COLUMN_NAME = "betterName";
+    public static final String COLUMN_REQUESTED = "bet";
     public static final String COLUMN_CATEGORY = "category";
     public static final String COLUMN_DATE = "date";
 
     private String[] allColumns = {COLUMN_ID, COLUMN_NAME, COLUMN_REQUESTED, COLUMN_CATEGORY, COLUMN_DATE};
 
-    public static final String CREATE_TABLE_NOTE = "create table " + NOTE_TABLE + " ( "
+    public static final String CREATE_TABLE_NOTE = "create table " + BET_TABLE + " ( "
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_NAME + " text not null, "
             + COLUMN_REQUESTED + " text not null, "
@@ -36,20 +36,20 @@ public class BetDbAdapter {
     private SQLiteDatabase sqlDB;
     private Context context;
 
-    private DollarBetDbHelper dollarBetDbHelper;
+    private BetDbHelper betDbHelper;
 
     public BetDbAdapter(Context ctx) {
         context = ctx;
     }
 
     public BetDbAdapter open() throws android.database.SQLException {
-        dollarBetDbHelper = new DollarBetDbHelper(context);
-        sqlDB = dollarBetDbHelper.getWritableDatabase();
+        betDbHelper = new BetDbHelper(context);
+        sqlDB = betDbHelper.getWritableDatabase();
         return this;
     }
 
     public void close() {
-        dollarBetDbHelper.close();
+        betDbHelper.close();
     }
 
     public Friend createNote(String name, String requested, Friend.Category category) {
@@ -59,9 +59,9 @@ public class BetDbAdapter {
         values.put(COLUMN_CATEGORY, category.name());
         values.put(COLUMN_DATE, Calendar.getInstance().getTimeInMillis() + "");
 
-        long insertId = sqlDB.insert(NOTE_TABLE, null, values);
+        long insertId = sqlDB.insert(BET_TABLE, null, values);
 
-        Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, COLUMN_ID + " = " + insertId, null,
+        Cursor cursor = sqlDB.query(BET_TABLE, allColumns, COLUMN_ID + " = " + insertId, null,
                 null, null, null);
 
         cursor.moveToFirst();
@@ -72,7 +72,7 @@ public class BetDbAdapter {
     }
 
     public long deleteNote(long idToDelete) {
-        return sqlDB.delete(NOTE_TABLE, COLUMN_ID + " = " + idToDelete, null);
+        return sqlDB.delete(BET_TABLE, COLUMN_ID + " = " + idToDelete, null);
     }
 
     public long updateFriend(long idToUpdate, String name, String requested, Friend.Category newCategory) {
@@ -82,13 +82,13 @@ public class BetDbAdapter {
         values.put(COLUMN_CATEGORY, newCategory.name());
         values.put(COLUMN_DATE, Calendar.getInstance().getTimeInMillis() + "");
 
-        return sqlDB.update(NOTE_TABLE, values, COLUMN_ID + " = " + idToUpdate, null);
+        return sqlDB.update(BET_TABLE, values, COLUMN_ID + " = " + idToUpdate, null);
     }
 
-    public ArrayList<Friend> getAllFriends() {
+    public ArrayList<Friend> getAllBets() {
         ArrayList<Friend> friends = new ArrayList<Friend>();
 
-        Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, null, null, null, null, null);
+        Cursor cursor = sqlDB.query(BET_TABLE, allColumns, null, null, null, null, null);
 
         for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
             Friend friend = cursorToFriend(cursor);
@@ -107,10 +107,10 @@ public class BetDbAdapter {
         return newFriend;
     }
 
-    private static class DollarBetDbHelper extends SQLiteOpenHelper {
+    private static class BetDbHelper extends SQLiteOpenHelper {
 
 
-        DollarBetDbHelper(Context ctx) {
+        BetDbHelper(Context ctx) {
             super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
@@ -121,7 +121,7 @@ public class BetDbAdapter {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS " + BET_TABLE);
             onCreate(db);
         }
     }
